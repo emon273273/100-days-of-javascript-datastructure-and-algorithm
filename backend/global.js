@@ -1,5 +1,5 @@
 // //set time out
-
+const math=require('./math')
 // //node a window nei ekhane global object kaj kore
 
 
@@ -22,3 +22,8 @@ console.log(global.a) //undefined karon global a kisu attach hoye jay na
 
 
 console.log(module)
+
+
+
+
+console.log(math.add(1,2))

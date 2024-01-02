@@ -10,7 +10,7 @@ const div=(a,b)=>a/b;
 const test=(a,b)=>add(a,b)/sub(a,b)
 
 
-module.exports=test; // shudu test baire jasse ar kisu a
+//module.exports=test; // shudu test baire jasse ar kisu a
 
 
 //->multiple exports
@@ -20,7 +20,12 @@ module.exports=test; // shudu test baire jasse ar kisu a
 //     add
 // }
 
-console.log("this is math js file")
+// console.log("this is math js file")
 
 
-console.log(module)
+// console.log(module)
+
+module.exports={
+
+    add
+}
