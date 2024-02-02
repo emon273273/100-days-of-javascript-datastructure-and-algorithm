@@ -70,3 +70,6 @@ let myquantiy: quantity = 50;
 type metric = "cm" | "inch";
 
 let hisab: metric = "cm";
+
+
+
