@@ -1,14 +1,36 @@
-const processOrder = (customer) => {
-  console.log("processing customer 1");
+const { log } = require("console");
+const { setTimeout } = require("timers");
 
-  let currentTime = new Date().getTime();
+const takeOrder = (customer, callback) => {
+  console.log(`take order for ${customer}`);
+  callback(customer);
+};
+const processOrder = (customer, callback) => {
+  console.log(`processing order for ${customer}`);
 
-  while (currentTime + 3000 >= new Date().getTime());
-  console.log("order processed for customer 1");
+  callback(customer);
+
+  setTimeout(() => {
+    console.log("cokking complete");
+    console.log(`order processed for ${customer}`);
+  }, 3000); // eta sobal last a print hbe
 };
 
-console.log("take order for customer 1");
+const completeOrder = (customer) => {
+  console.log(`completed order for ${customer}`);
+};
 
-processOrder();
+//function call customer 1
+takeOrder("customer 1", (customer) => {
+  processOrder(customer, (customer) => {
+    completeOrder(customer);
+  });
+});
 
-console.log("completed order for customer 1");
+//function call customer 2
+
+takeOrder("customer 2",(customer)=>{
+	processOrder(customer,(customer)=>{
+		completeOrder(customer);
+	})
+})
