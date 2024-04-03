@@ -1,54 +1,63 @@
-const express=require ("express")
-const router=express.Router()
-
+const express = require("express");
+const router = express.Router();
 
 //GET
 
-router.get('/',(req,res,next)=>{
+const contacts = [];
 
-    res.status(200).json({
-        messsage:"hello i am all contacts get route"
-    })
-})
+router.get("/", (req, res, next) => {
+  res.status(200).json({
+    contacts,
+  });
+});
 
-router.get("/:id",(req,res,next)=>{
-const id=req.params.id
-    console.log(req.url);
+router.get("/:id", (req, res, next) => {
+  const id = req.params.id;
+  console.log(req.url);
 
-    res.json({
-        message:" i am a single contact" 
-    })
-})
+  res.json({
+    message: " i am a single contact",
+  });
+});
 
 //post
+router.post("/", (req, res, next) => {
+  contacts.push({
+    name: req.body.name,
+    email: req.body.email,
+  });
 
-router.post("/:id",(req,res,next)=>{
+  //
 
-    res.status(201).json({
+  res.status(201).json({
+    message: "data saved",
+  });
+});
 
-        message:"hello i am post Route"
-    })
-})
+router.post("/:id", (req, res, next) => {
+  res.status(201).json({
+    message: "hello i am post Route",
+  });
+});
 
 //put
-router.put("/:id",(req,res,next)=>{
-    const id=req.params.id
-        console.log(req.url);
-    
-        res.json({
-            message:" i am a put route"
-        })
-    })
+router.put("/:id", (req, res, next) => {
+  const id = req.params.id;
+  console.log(req.url);
 
-    //delete
-    router.delete("/:id",(req,res,next)=>{
-        const id=req.params.id
-            console.log(req.url);
-        
-            res.json({
-                message:" i am a delete route"
-            })
-        })
+  res.json({
+    message: " i am a put route",
+  });
+});
 
+//delete
+router.delete("/:id", (req, res, next) => {
+  const id = req.params.id;
+  console.log(req.url);
 
-module.exports=router;
+  res.json({
+    message: " i am a delete route",
+  });
+});
+
+module.exports = router;

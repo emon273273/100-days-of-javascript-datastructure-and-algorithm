@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon b/home/emon/Documents/100-days-of-javascript-datastructure-and-algorithm/drive_into_node/simple_contact_list/contact_api/app.js"
   },
   "keywords": [],
   "author": "",
