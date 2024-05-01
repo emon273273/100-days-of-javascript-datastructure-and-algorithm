@@ -1,41 +1,21 @@
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-
+const router = require("./routes");
 const app = express();
 //middlware
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-let Schema = mongoose.Schema;
-
-let testSchema = new Schema({
-  name: String,
-});
-
-let Test = mongoose.model("Test", testSchema);
-
+app.use("/contacts", router);
+// setup ejs
+app.set('view engine','ejs')
 app.get("/", (req, res) => {
-  let test = new Test({
-    name: "emon sab",
-  });
 
-  test
-    .save()
-    .then((t) => {
-      res.json(t);
-    })
-    .catch((e) => {
-      console.log(e);
-      res.status(500).json({
-
-        error:"error occured"
-      })
-    });
+  res.send("hello")
 });
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8081;
 
 mongoose
   .connect(
