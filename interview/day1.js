@@ -1,3 +1,5 @@
+const { type } = require("os");
+
 let primitiveTypes = [
   "string",
   "number",
@@ -40,6 +42,9 @@ console.log(someObj["d"]); //undefined
 
 let number = null;
 console.log(number); //null
+
+console.log(typeof null); //object type
+console.log(typeof undefined); //undefined
 
 //When comparing null and undefined we get true when using == and false when using ===. You can read the reason
 
