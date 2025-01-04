@@ -31,6 +31,7 @@ function vowelcount(str) {
   console.log(count);
 }
 
+//another way
 function vowelcount2(str) {
   let vowel = "aeiouAEIOU";
   let count = 0;
